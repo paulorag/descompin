@@ -2,18 +2,17 @@ import CardBS from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 
-export const Card = () => {
+export const Card = ({ imagem, title, total }) => {
     return (
         <CardBS>
-            <CardBS.Img src="https://picsum.photos/200/300?53" alt="CardBS image" />
+            <CardBS.Img src={imagem} alt="CardBS image" />
             <CardBS.ImgOverlay>
                 <Button variant="primary">
-                    Profile <Badge bg="secondary">9</Badge>
-                    <span className="visually-hidden">unread messages</span>
+                    Salvar <Badge bg="secondary">{total}</Badge>
                 </Button>
             </CardBS.ImgOverlay>
             <CardBS.Body>
-            <CardBS.Title>Trigonometria</CardBS.Title>
+                <CardBS.Title>{title}</CardBS.Title>
             </CardBS.Body>
         </CardBS>
     );
