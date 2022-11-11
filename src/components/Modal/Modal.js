@@ -1,4 +1,4 @@
-import Button from 'react-bootstrap/Button';
+import { Button } from '../Button/Button';
 import ModalBS from 'react-bootstrap/Modal';
 
 export const Modal = ({ title, children, open, controls = [] }) => {
@@ -10,9 +10,10 @@ export const Modal = ({ title, children, open, controls = [] }) => {
             <ModalBS.Body>{children}</ModalBS.Body>
             <ModalBS.Footer>
                 {controls.map((control, controlIndex) => (
-                    <Button key={controlIndex} variant={control.variant} onClick={control.onClick}>
-                        {control.label}
-                    </Button>
+                    <Button
+                        key={controlIndex}
+                        {...control}
+                    />
                 ))}
             </ModalBS.Footer>
         </ModalBS >
