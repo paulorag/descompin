@@ -1,4 +1,4 @@
-import ReactDOM from 'react';
+import ReactDOM from 'react-dom';
 import Alert from 'react-bootstrap/Alert';
 import './index.css';
 
@@ -7,7 +7,7 @@ export const Notification = ({ message, variant = 'success', onClose }) => {
         <div className='notification'>
             <Alert variant={variant} onClose={onClose} dismissible>
                 {message}
-            </Alert>
+            </Alert> 
         </div>,
         document.body
     )

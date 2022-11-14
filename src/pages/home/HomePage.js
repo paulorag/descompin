@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { ModalSavePin } from "../../containers/ModalSavePin/ModalSavePin";
 import { ModalCreateFolder } from "../../containers/ModalCreateFolder/ModalCreateFolder";
-import { Notification } from "../../components/Notifications/Notification";
+import { Notification } from "../../components/Notification/Notification";
 
 export const HomePage = () => {
     return (

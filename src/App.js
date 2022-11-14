@@ -1,12 +1,19 @@
-import { HomePage } from "./pages/home/HomePage";
-import { HeaderPartial } from "./Partials/HeaderPartial/HeaderPartial";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import { HomePage } from "./pages/Home/HomePage";
+import { MinhasPastasPage } from "./pages/MinhasPastas/MinhasPastasPage";
+import { HeaderPartial } from "./partials/HeaderPartial/HeaderPartial";
 
 function App() {
   return (
-    <div className="App">
-      <HeaderPartial />
-      <HomePage />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <HeaderPartial />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/minhas-pastas" element={<MinhasPastasPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
