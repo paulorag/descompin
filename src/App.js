@@ -2,18 +2,26 @@ import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import { HomePage } from "./pages/Home/HomePage";
 import { MinhasPastasPage } from "./pages/MinhasPastas/MinhasPastasPage";
 import { HeaderPartial } from "./partials/HeaderPartial/HeaderPartial";
-import { saveFolder, savePinInFolder } from "./services/pinServices";
+import { AppContext } from "./store/AppContext";
+
+const initialState = {
+  activePingId: null,
+  mode: null,
+  folders: [],
+  type: null,
+};
 
 function App() {
-  saveFolder('JavaScript');
   return (
     <BrowserRouter>
       <div className="App">
-        <HeaderPartial />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/minhas-pastas" element={<MinhasPastasPage />} />
-        </Routes>
+        <AppContext initialState={initialState}>
+          <HeaderPartial />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/minhas-pastas" element={<MinhasPastasPage />} />
+          </Routes>
+        </AppContext>
       </div>
     </BrowserRouter>
   );
