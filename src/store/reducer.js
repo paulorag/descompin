@@ -5,23 +5,52 @@ export function reducer(state, action) {
         case types.openModalSavePinType:
             return {
                 ...state,
-                mode: 'savePin'
+                type: types.openModalSavePinType,
+                mode: 'savePin',
+                activePinId: action.payload
             }
-        case types.closeModalType:
+        case types.closeModalsType:
             return {
                 ...state,
+                type: types.closeModalsType,
                 mode: null
             }
         case types.fetchFoldersInitType:
             return {
                 ...state,
+                type: types.fetchFoldersInitType
             }
         case types.fetchFoldersSuccessType:
             return {
                 ...state,
+                type: types.fetchFoldersSuccessType,
                 folders: action.payload
             }
+        case types.openModalCreateFolderType:
+            return {
+                ...state,
+                type: types.openModalCreateFolderType,
+                mode: 'createFolder'
+            }
+        case types.saveFolderSuccessType:
+            return {
+                ...state,
+                type: types.saveFolderSuccessType,
+                folders: [
+                    ...state.folders,
+                    action.payload
+                ]
+            }
+        case types.savePinInFolderSuccessType:
+            return {
+                ...state,
+                type: types.savePinInFolderSuccessType,
+                fodlers: action.payload
+            }
         default:
-            return state;
+            return {
+                ...state,
+                type: action.type
+            };
     }
 }
