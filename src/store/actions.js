@@ -64,10 +64,28 @@ export const savePinInFolderSuccessAction = async (folders) => ({
 
 export const savePinInFolderAction = async (dispatch, pinId, folderId) => {
     dispatch(savePinInFolderInitAction());
-    
+
     await sleep(1000);
 
     await pinService.savePinInFolder(folderId, pinId);
     const folders = await pinService.getFolders();
-    dispatch(savePinInFolderSuccessAction(folders))
+    dispatch(savePinInFolderSuccessAction(folders));
+}
+
+export const fetchPinsInitAction = () => ({
+    type: types.fetchPinsInitType
+});
+
+export const fetchPinsSuccesAction = (pinsData) => ({
+    type: types.fetchPinsSuccessType,
+    payload: pinsData
+});
+
+export const fetchPinsAction = async (dispatch) => {
+    dispatch(fetchPinsInitAction());
+
+    await sleep(1000);
+
+    const pinsData = await pinService.getPins();
+    dispatch(fetchPinsSuccesAction(pinsData));
 }

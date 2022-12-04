@@ -40,3 +40,26 @@ export const savePinInFolder = async (folderId, pinId) => {
 
     return { ...folders[folderIndex] }
 }
+
+export const getPins = async () => {
+    return [
+        {
+            id: '123',
+            title: 'Trigonometria',
+            image: 'https://picsum.photos/200/300?53',
+            total: 0
+        },
+        {
+            id: '153',
+            title: 'JavaScript',
+            image: 'https://picsum.photos/200/300?43',
+            total: 0
+        },
+        {
+            id: '141',
+            title: 'HTML',
+            image: 'https://picsum.photos/200/300?51',
+            total: 0
+        }
+    ]
+}

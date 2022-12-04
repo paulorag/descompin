@@ -69,7 +69,7 @@ export const ModalSavePin = ({ open }) => {
             ]}>
             <ListGroup variant="flush">
                 {state.folders.map((folder, folderIndex) => (
-                    < ListGroup.Item key={folderIndex}>
+                    <ListGroup.Item key={folderIndex}>
                         <Row>
                             <Col xs={8}>{folder.name}</Col>
                             <Col xs={4} className='text-end'>
